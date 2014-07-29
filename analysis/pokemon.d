@@ -62,7 +62,7 @@ class PokemonExceptionCheck : BaseAnalyzer
 			return;
 		}
 
-		if (type2.symbol.identifierOrTemplateChain.identifiersOrTemplateInstances.length != 1)
+		if (type2.symbol is null || type2.symbol.identifierOrTemplateChain.identifiersOrTemplateInstances.length != 1)
 		{
 			return;
 		}
