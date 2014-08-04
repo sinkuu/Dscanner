@@ -213,11 +213,12 @@ class XMLPrinter : ASTVisitor
 		foreach (dec; conditionalDeclaration.trueDeclarations)
 			visit(dec);
 		output.writeln("</trueDeclarations>");
-		if (conditionalDeclaration.falseDeclaration !is null)
+		if (!conditionalDeclaration.falseDeclarations.empty)
 		{
-			output.writeln("<falseDeclaration>");
-			visit(conditionalDeclaration.falseDeclaration);
-			output.writeln("</falseDeclaration>");
+			output.writeln("<falseDeclarations>");
+			foreach (decl; conditionalDeclaration.falseDeclarations)
+				visit(decl);
+			output.writeln("</falseDeclarations>");
 		}
 		output.writeln("</conditionalDeclaration>");
 	}
