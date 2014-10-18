@@ -80,4 +80,7 @@ struct StaticAnalysisConfig
 
 	@INI("Checks for local imports that are too broad")
 	bool local_import_check;
+
+	@INI("Checks for public and version(unittest) declarations")
+	bool public_unittest;
 }

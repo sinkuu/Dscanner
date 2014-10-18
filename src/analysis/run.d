@@ -39,6 +39,7 @@ import analysis.undocumented;
 import analysis.comma_expression;
 import analysis.function_attributes;
 import analysis.local_imports;
+import analysis.public_unittest;
 
 bool first = true;
 
@@ -187,6 +188,7 @@ MessageSet analyze(string fileName, const Module m,
 	if (analysisConfig.function_attribute_check) checks ~= new FunctionAttributeCheck(fileName);
 	if (analysisConfig.comma_expression_check) checks ~= new CommaExpressionCheck(fileName);
 	if (analysisConfig.local_import_check) checks ~= new LocalImportCheck(fileName);
+	if (analysisConfig.public_unittest) checks ~= new PublicUnittestCheck(fileName);
 
 	foreach (check; checks)
 	{
